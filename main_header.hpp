@@ -12,6 +12,7 @@
 #include <iterator>
 #include "reverse_class.cpp"
 #include "function_object.cpp"
+#include "overloaded_operator.cpp"
 
 typedef char charType;
 typedef string stringType;

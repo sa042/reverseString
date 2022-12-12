@@ -77,8 +77,8 @@ int main()
 	cout <<"Expression 3: Using Function Objects ->" << endl;
 
 	StringReverseBase<stringType>* ptr_string_rev_child_class = new StringReverseChildClass<stringType>();
-	stringType strOut = reverseFunc(str_input , str_length, ptr_string_rev_child_class);
-	cout <<"Reverse when string type is used = " << strOut << endl;
+	reverse_string_out = reverseFunc(str_input , str_length, ptr_string_rev_child_class);
+	cout <<"Reverse when string type is used = " << reverse_string_out << endl;
 
 	StringReverseBase<vectorType>* ptr_vec_rev_child_class = new VecReverseChildClass<vectorType>();
 	reverse_vec_out = reverseFunc(vec, vec_size, ptr_vec_rev_child_class);
@@ -87,6 +87,23 @@ int main()
 	cout << endl;
 	cout <<"Expression 3 End." << endl;
 	/*Expression 3 End
+	 *
+	 *
+	 * */
+
+	/*Expression 4 Start -> Using overloaded operators
+	 *
+	 *
+	 **/
+
+	cout << endl;
+	cout <<"Expression 4: Using Overloaded Operators ->" << endl;
+	OverloadedOperators overloaded_op_obj(str_input);
+	reverse_string_out  = !overloaded_op_obj;
+	cout <<"Reverse when string type is used = " << reverse_string_out << endl;
+	cout <<"Expression 4 End." << endl;
+
+	/*Expression 4 End
 	 *
 	 *
 	 * */
