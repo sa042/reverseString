@@ -155,9 +155,6 @@ int main()
 				cout <<"Reverse it back to original string  = " << closure_input << endl;
 				cout <<"Expression 5 End." << endl;
 
-				//function<void(void)> func1 = closureWrapper1();
-				//function<void(void)> func2 = closureWrapper2();
-
 				/*Expression 5 End
 				*
 				*
