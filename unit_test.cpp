@@ -77,7 +77,7 @@ int main()
 	cout <<"Expression 3: Using Function Objects ->" << endl;
 
 	StringReverseBase<stringType>* ptr_string_rev_child_class = new StringReverseChildClass<stringType>();
-	reverse_string_out = reverseFunc(str_input , str_length, ptr_string_rev_child_class);
+	reverse_string_out = reverseFunc(str_input, str_length, ptr_string_rev_child_class);
 	cout <<"Reverse when string type is used = " << reverse_string_out << endl;
 
 	StringReverseBase<vectorType>* ptr_vec_rev_child_class = new VecReverseChildClass<vectorType>();
@@ -135,6 +135,31 @@ int main()
 	 *
 	 *
 	 * */
+
+	/*Expression 6 Start -> Using Decorators
+	*
+	*
+	**/
+	cout << endl;
+	cout <<"Expression 6: Using Decorators ->" << endl;
+
+	BaseClass* base_obj = new StringInputConcrete(str_input);
+	cout <<"Input String : "<< callDecorator(base_obj) << endl;
+
+	BaseClass* decorator_obj = new StringReverseDecorator(base_obj);
+	reverse_string_out = callDecorator(decorator_obj);
+
+	cout << "Reverse String: " << reverse_string_out << endl;
+
+	delete base_obj;
+	delete decorator_obj;
+
+	cout <<"Expression 6 End." << endl;
+
+	/*Expression 6 End
+	*
+	*
+	* */
 
 	return 0;
 }
