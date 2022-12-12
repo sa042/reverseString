@@ -1,17 +1,5 @@
 //unit_test.cpp
-#include <iostream>
-using namespace std;
-
-#include <iterator>
-#include <string>
-#include <vector>
-#include "reverse_header.hpp"
-
-typedef char charType;
-typedef string stringType;
-typedef string& stringReferenceType;
-typedef vector<char> vectorType;
-
+#include "main_header.hpp"
 
 int main()
 {
@@ -47,6 +35,36 @@ int main()
 	cout << endl <<"Expression 1 End." << endl;
 
 	/*Expression 1 End
+	 *
+	 *
+	 * */
+
+	/*Expression 2 Start -> Using Class and Member Functions
+	 *
+	 *
+	 */
+
+	cout << endl;
+	cout <<"Expression 2: Using Class and Member Functions ->" << endl;
+
+	StringReverseCls<charType, vectorType, stringType> reverse_obj(str_input, vec, str_length);
+	reverse_obj.reverse();
+
+	reverse_vec_out = reverse_obj.getVector();
+	cout <<"Reverse when vector is used = ";
+	copy(reverse_vec_out.begin(), reverse_vec_out.end(), ostream_iterator<char>(cout));
+	cout << endl;
+
+	cout <<"Reverse when String is used = ";
+	charType* ptr_reverse_string_out = reverse_obj.getString();
+	for (unsigned int i = 0; i < str_length; i++)
+	   cout << *(ptr_reverse_string_out + i);
+
+	cout << endl;
+
+	cout <<"Expression 2 End." << endl;
+
+	/*Expression 2 End
 	 *
 	 *
 	 * */
