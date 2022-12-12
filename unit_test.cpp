@@ -69,6 +69,28 @@ int main()
 	 *
 	 * */
 
+	/*Expression 3 Start -> Using Function Objects
+	 *
+	 *
+	 */
+	cout << endl;
+	cout <<"Expression 3: Using Function Objects ->" << endl;
+
+	StringReverseBase<stringType>* ptr_string_rev_child_class = new StringReverseChildClass<stringType>();
+	stringType strOut = reverseFunc(str_input , str_length, ptr_string_rev_child_class);
+	cout <<"Reverse when string type is used = " << strOut << endl;
+
+	StringReverseBase<vectorType>* ptr_vec_rev_child_class = new VecReverseChildClass<vectorType>();
+	reverse_vec_out = reverseFunc(vec, vec_size, ptr_vec_rev_child_class);
+	cout <<"Reverse when vector is used = ";
+	copy(reverse_vec_out.begin(), reverse_vec_out.end(), ostream_iterator<char>(cout));
+	cout << endl;
+	cout <<"Expression 3 End." << endl;
+	/*Expression 3 End
+	 *
+	 *
+	 * */
+
 	return 0;
 }
 
