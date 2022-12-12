@@ -108,6 +108,34 @@ int main()
 	 *
 	 * */
 
+	/*Expression 5 Start -> Using closures
+	 *
+	 *
+	 **/
+	cout << endl;
+	cout <<"Expression 5: Using closures ->" << endl;
+
+	stringType closure_input = str_input;
+
+	const auto& func = [&closure_input](){
+		unsigned int size = closure_input.size();
+		reverseStringRef(closure_input, size);
+	};
+
+	func();
+	cout <<"Reverse when closures is used = " << closure_input << endl;
+	func();
+	cout <<"Reverse it back to original string  = " << closure_input << endl;
+	cout <<"Expression 5 End." << endl;
+
+	//function<void(void)> func1 = closureWrapper1();
+	//function<void(void)> func2 = closureWrapper2();
+
+	/*Expression 5 End
+	 *
+	 *
+	 * */
+
 	return 0;
 }
 
