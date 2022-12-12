@@ -12,14 +12,14 @@ int main()
 	unsigned int str_length;
 	unsigned int vec_size;
 	bool flag = true;
-
+	bool cin_flag = false;
 	while(flag){
 
 
-		cout << "Enter string: " <<endl;
-		cin.ignore();
-		//Taking input
-		getline(cin, str_input);
+		cout << "Enter string: " << endl;
+		//getline(cin, str_input);
+		getline(cin >> ws, str_input);
+		//scanf("%s", str_input);
 
 		vectorType vec(str_input.begin(), str_input.end());
 		str_length = str_input.length();
@@ -38,11 +38,11 @@ int main()
 				 * */
 				cout <<"Expression 1: Using Templates ->" << endl;
 				reverse_string_out = reverseString(str_input, str_length);
-				cout <<"Reverse when string value type is used = " << reverse_string_out << endl;
+				cout <<"Reverse when string value type is used = " << trim(reverse_string_out) << endl;
 
 				stringReferenceType str_ref_input = str_input;
 				reverse_string_ref_out = reverseString(str_ref_input, str_length);
-				cout <<"Reverse when string reference type is used = " << reverse_string_ref_out << endl;
+				cout <<"Reverse when string reference type is used = " << trim(reverse_string_ref_out) << endl;
 
 				reverse_vec_out = reverseString(vec, vec_size);
 				cout <<"Reverse when vector is used = ";
@@ -97,10 +97,12 @@ int main()
 				cout << endl;
 				cout <<"Expression 3: Using Function Objects ->" << endl;
 
+				//A base class pointer can point to a derived class object
 				StringReverseBase<stringType>* ptr_string_rev_child_class = new StringReverseChildClass<stringType>();
 				reverse_string_out = reverseFunc(str_input, str_length, ptr_string_rev_child_class);
 				cout <<"Reverse when string type is used = " << reverse_string_out << endl;
 
+				//A base class pointer can point to a derived class object
 				StringReverseBase<vectorType>* ptr_vec_rev_child_class = new VecReverseChildClass<vectorType>();
 				reverse_vec_out = reverseFunc(vec, vec_size, ptr_vec_rev_child_class);
 				cout <<"Reverse when vector is used = ";
@@ -124,7 +126,7 @@ int main()
 				cout <<"Expression 4: Using Overloaded Operators ->" << endl;
 				OverloadedOperators overloaded_op_obj(str_input);
 				reverse_string_out  = !overloaded_op_obj;
-				cout <<"Reverse when string type is used = " << reverse_string_out << endl;
+				cout <<"Reverse when string type is used = " << trim(reverse_string_out) << endl;
 				cout <<"Expression 4 End." << endl;
 
 				/*Expression 4 End
@@ -150,9 +152,9 @@ int main()
 				};
 
 				func();
-				cout <<"Reverse when closures is used = " << closure_input << endl;
+				cout <<"Reverse when closures is used = " << trim(closure_input) << endl;
 				func();
-				cout <<"Reverse it back to original string  = " << closure_input << endl;
+				cout <<"Reverse it back to original string  = " << trim(closure_input) << endl;
 				cout <<"Expression 5 End." << endl;
 
 				/*Expression 5 End
@@ -170,13 +172,13 @@ int main()
 				cout << endl;
 				cout <<"Expression 6: Using Decorators ->" << endl;
 
+				// A base class pointer can point to a derived class object
 				BaseClass* base_obj = new StringInputConcrete(str_input);
 				cout <<"Input String : "<< callDecorator(base_obj) << endl;
-
 				BaseClass* decorator_obj = new StringReverseDecorator(base_obj);
 				reverse_string_out = callDecorator(decorator_obj);
 
-				cout << "Reverse String: " << reverse_string_out << endl;
+				cout << "Reverse String: " << trim(reverse_string_out) << endl;
 
 				delete base_obj;
 				delete decorator_obj;
@@ -192,6 +194,7 @@ int main()
 			case '7':
 			{
 				stringType str_out = str_input;
+				trim(str_out);
 				reverse(str_out.begin(), str_out.end());
 				cout << "Reverse String: " << str_out << endl;
 				break;
@@ -214,5 +217,4 @@ int main()
 }
 
 //locate.h
-
 
