@@ -25,7 +25,7 @@ int main()
 		str_length = str_input.length();
 		vec_size = vec.size();
 
-		cout <<"Press 1 to 6 to choose Expression from 1 to 6 and Press 7 to exit" << endl;
+		cout <<"Press 1 to 7 to choose Expression from 1 to 7 and Press 8 to exit" << endl;
 		cout << "Enter your choice: " << endl;
 		cin >> select;
 
@@ -190,6 +190,14 @@ int main()
 				break;
 			}
 			case '7':
+			{
+				stringType str_out = str_input;
+				reverse(str_out.begin(), str_out.end());
+				cout << "Reverse String: " << str_out << endl;
+				break;
+			}
+
+			case '8':
 			{
 				cout << "Thanks for using my program. Goodbye!!" << endl;
 				flag = false;

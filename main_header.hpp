@@ -10,6 +10,7 @@
 
 
 #include <iterator>
+#include <bits/stdc++.h>
 #include "function_object.cpp"
 #include "overloaded_operator.cpp"
 #include "decorators.hpp"
