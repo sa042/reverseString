@@ -20,15 +20,15 @@ typedef string stringType;
 typedef string& stringReferenceType;
 typedef vector<char> vectorType;
 
+// This function is used to call virtual function operation() in decorators.hpp
+stringType callDecorator(BaseClass* component) {
+	return component->Operation();
+}
+
 // This function template is used to call StringReverseChildClass and VecReverseChildClass operator function ().
 template <typename T>
 T reverseFunc(T v, unsigned int size, StringReverseBase<T>* bin_func) {
 	return (*bin_func)(v, size);
-}
-
-// This function is used to call virtual function operation() in decorators.hpp
-stringType callDecorator(BaseClass* component) {
-	return component->Operation();
 }
 
 
